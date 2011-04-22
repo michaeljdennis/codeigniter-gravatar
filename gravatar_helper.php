@@ -16,14 +16,21 @@
  * Parameter 4: array of image attributes
  * 
  * Example: get_gravatar('user@example.com', TRUE, array('s' => 150), array('id' => 'avatar')
- * 
- * TODO: https (https://secure.gravatar.com/), validate email
  */
 if ( ! function_exists('get_gravatar'))
 {
     function get_gravatar($email, $image_tag = FALSE, $options = array(), $attrs = array())
     {
-        $url = 'http://www.gravatar.com/avatar/';
+        if(isset($_SERVER['HTTPS']))
+        {
+            $url = 'https://secure.';
+        }
+        else
+        {
+            $url = 'http://www.';
+        }
+        
+        $url .= 'gravatar.com/avatar/';
         $url .= md5( strtolower( trim( $email ) ) );
         
         if(is_array($options) && array_key_exists('s', $options))
