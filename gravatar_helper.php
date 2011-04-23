@@ -21,15 +21,7 @@ if ( ! function_exists('get_gravatar'))
 {
     function get_gravatar($email, $image_tag = FALSE, $options = array(), $attrs = array())
     {
-        if(isset($_SERVER['HTTPS']))
-        {
-            $url = 'https://secure.';
-        }
-        else
-        {
-            $url = 'http://www.';
-        }
-        
+        $url = isset($_SERVER['HTTPS']) ? 'https://secure.' : 'http://www.';
         $url .= 'gravatar.com/avatar/';
         $url .= md5( strtolower( trim( $email ) ) );
         
