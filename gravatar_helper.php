@@ -1,25 +1,40 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * CodeIgniter Gravatar Helper
+* CodeIgniter Gravatar Helper
+*
+* @package      CodeIgniter
+* @subpackage   Helpers
+* @category     Helpers
+* @author       Michael Dennis
+* @version      1.0
+*/
+
+/** 
+ * Gravatar
  * 
- * Parameter 1: email address
- * Parameter 2: return gravatar url wrapped in image tag? (default : FALSE)
- * Parameter 3: array of gravatar options
- *     s = size (default : 80)
- *         options : 1 - 512
- *     d = default (default : mm)
- *         options : 404, mm, identicon, monsterid, wavatar, retro
- *     f = forcedefault (default : null)
- *         options : y
- *     r = rating (default : null)
- *         options : g, pg, r, x
- * Parameter 4: array of image attributes
+ * Fetches gravatar images from gravatar.com
  * 
- * Example: get_gravatar('user@example.com', TRUE, array('s' => 150), array('id' => 'avatar')
+ * @access  public
+ * @param   string $email
+ * @param   array $options
+ * @return  string
+ * 
+ * Gravatar options
+ * s = size (default : 80)
+ *     options : 1 - 512
+ * d = default (default : mm)
+ *     options : 404, mm, identicon, monsterid, wavatar, retro
+ * f = forcedefault (default : null)
+ *     options : y
+ * r = rating (default : null)
+ *     options : g, pg, r, x
+ * 
+ * Example
+ * echo gravatar('user@example.com', array('s' => 150))
  */
-if ( ! function_exists('get_gravatar'))
+if ( ! function_exists('gravatar'))
 {
-    function get_gravatar($email, $image_tag = FALSE, $options = array(), $attrs = array())
+    function gravatar($email, $options = array())
     {
         $url = isset($_SERVER['HTTPS']) ? 'https://secure.' : 'http://www.';
         $url .= 'gravatar.com/avatar/';
@@ -52,25 +67,8 @@ if ( ! function_exists('get_gravatar'))
         {
             $url .= '&r=' . $options['r'];
         }
-        
-        $image = $url;
-        
-        if($image_tag == TRUE)
-        {
-            $image = '<img src="' . $url . '" ';
-            
-            if(is_array($attrs) && !empty($attrs))
-            {
-                foreach($attrs as $k => $v)
-                {
-                    $image .= $k . '="' . $v . '" ';
-                }
-            }
-            
-            $image .= '/>';
-        }
 
-        return $image;
+        return $url;
     }
 }
 
