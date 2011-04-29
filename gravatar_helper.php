@@ -51,7 +51,7 @@ if ( ! function_exists('gravatar'))
 
         if(is_array($options) && array_key_exists('d', $options))
         {
-            $url .= '&d=' . $options['d'];
+            $url .= '&d=' . urlencode($options['d']);
         }
         else
         {
