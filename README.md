@@ -1,8 +1,12 @@
 CodeIgniter Gravatar Helper
 ===========================
-A CodeIgniter helper for fetching gravatar images from [gravatar.com](http://gravatar.com).
+A CodeIgniter helper for fetching gravatar image URLs from [gravatar.com](http://gravatar.com).
 
-Options
+Usage
+-------
+	<?php echo gravatar('user@example.com', array('s' => 150, 'd' => 'mm')); ?>
+
+Array Options
 ----------------
 **Size** - s<br>
 default : 80<br>
@@ -19,7 +23,3 @@ options : y
 **Rating** - r<br>
 default : null<br>
 options : g, pg, r, x
-
-Usage
--------
-	<?php echo gravatar('user@example.com', array('s' => 150, 'd' => 'mm')); ?>

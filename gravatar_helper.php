@@ -6,7 +6,7 @@
  * @subpackage   Helpers
  * @category     Helpers
  * @author       Michael Dennis
- * @version      1.0
+ * @version      1.0.0
  */
 
 if ( ! function_exists('gravatar'))
