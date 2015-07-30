@@ -1,4 +1,4 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * CodeIgniter Gravatar Helper
  *
@@ -9,7 +9,7 @@
  * @version      1.0.0
  */
 
-if (!function_exists('gravatar')) {
+if(!function_exists('gravatar')) {
     /**
      * Get gravatar image
      *
@@ -25,13 +25,13 @@ if (!function_exists('gravatar')) {
 
         if(is_array($options)) {
             if(array_key_exists('s', $options)) {
-                $url .= '?s=' . $options['s'];
+                $url .= '?s='.$options['s'];
             } else {
                 $url .= '?s=80';
             }
 
             if(array_key_exists('d', $options)) {
-                $url .= '&d=' . urlencode($options['d']);
+                $url .= '&d='.urlencode($options['d']);
             } else {
                 $url .= '&d=mm';
             }
@@ -41,7 +41,7 @@ if (!function_exists('gravatar')) {
             }
 
             if(array_key_exists('r', $options)) {
-                $url .= '&r=' . $options['r'];
+                $url .= '&r='.$options['r'];
             }
         }
 
